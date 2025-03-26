@@ -1,10 +1,6 @@
 {
   "extends": "@adonisjs/tsconfig/tsconfig.package.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "noEmit": false,
-    "emitDeclarationOnly": true,
-    "allowImportingTsExtensions": true,
     "rootDir": "./",
     "outDir": "./build"
   },

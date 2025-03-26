@@ -49,6 +49,7 @@
     "@japa/runner": "^3.1.4",
     "@mantine/core": "^7.17.2",
     "@mantine/dates": "^7.17.2",
+    "@mantine/form": "^7.17.2",
     "@swc/core": "^1.6.3",
     "@types/luxon": "^3.4.2",
     "@types/node": "^20.14.5",
