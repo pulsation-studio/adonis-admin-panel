@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate",
-  "description": "",
-  "version": "0.0.0",
+  "name": "adonis-admin-panel",
+  "description": "AdonisJS admin panel",
+  "version": "0.0.1",
   "engines": {
     "node": ">=20.6.0"
   },
@@ -14,6 +14,7 @@
     "build/index.js"
   ],
   "exports": {
+    "./providers/admin_config_provider": "./providers/admin_config_provider.js",
     ".": "./build/index.js",
     "./types": "./build/src/types.js"
   },
@@ -34,29 +35,43 @@
     "prepublishOnly": "npm run build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pulsation",
   "license": "MIT",
   "devDependencies": {
     "@adonisjs/assembler": "^7.8.2",
-    "@adonisjs/core": "^6.12.0",
+    "@adonisjs/core": "^6.14.1",
     "@adonisjs/eslint-config": "2.0.0-beta.7",
+    "@adonisjs/inertia": "^1.2.2",
+    "@adonisjs/lucid": "^21.3.0",
     "@adonisjs/prettier-config": "^1.4.0",
-    "@adonisjs/tsconfig": "^1.3.0",
+    "@adonisjs/tsconfig": "^1.4.0",
     "@japa/assert": "^3.0.0",
     "@japa/runner": "^3.1.4",
+    "@mantine/core": "^7.17.2",
+    "@mantine/dates": "^7.17.2",
     "@swc/core": "^1.6.3",
+    "@types/luxon": "^3.4.2",
     "@types/node": "^20.14.5",
+    "@types/react": "^19.0.12",
     "c8": "^10.1.2",
     "copyfiles": "^2.4.1",
     "del-cli": "^5.1.0",
     "eslint": "^9.15.0",
+    "luxon": "^3.5.0",
     "np": "^10.0.6",
     "prettier": "^3.3.2",
+    "react": "^19.0.0",
     "ts-node-maintained": "^10.9.4",
-    "typescript": "^5.4.5"
+    "typescript": "^5.8.2"
   },
   "peerDependencies": {
-    "@adonisjs/core": "^6.2.0"
+    "@adonisjs/application": "8.3.1",
+    "@adonisjs/core": "^6.14.1",
+    "@adonisjs/inertia": "^1.2.2",
+    "@adonisjs/lucid": "^21.3.0",
+    "@mantine/core": "^7.17.2",
+    "@mantine/dates": "^7.17.2",
+    "luxon": "^3.5.0"
   },
   "publishConfig": {
     "access": "public",
