@@ -1,6 +1,6 @@
 import { Application } from '@adonisjs/core/app'
-import type { AdminConfig } from '../src/models/admin_config.js'
-import { AdminConfigService } from '../src/services/admin_config_service.js'
+import type { AdminConfig } from '../models/admin_config.js'
+import { AdminConfigService } from '../services/admin_config_service.js'
 
 export default class AdminConfigProvider {
   constructor(protected app: Application<any>) {}
