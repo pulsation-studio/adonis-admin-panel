@@ -45,6 +45,11 @@ import { adminRoutes } from 'adonis-admin-panel/routes'
 adminRoutes()
 ```
 
+### Front-end
+
+The front-end is not on this repo due to react building complications.
+You can find an example on [this repo](https://github.com/pulsation-studio/gift-card-app), in **inertia/pages** and **inertia/components**
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for details.
