@@ -3,7 +3,7 @@
   "description": "AdonisJS admin panel",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "engines": {
     "node": ">=20.6.0"
   },
@@ -60,7 +60,7 @@
     "@adonisjs/assembler": "^7.8.2",
     "@adonisjs/core": "^6.14.1",
     "@adonisjs/eslint-config": "2.0.0-beta.7",
-    "@adonisjs/inertia": "^1.2.2",
+    "@adonisjs/inertia": "^3.1.1",
     "@adonisjs/lucid": "^21.3.0",
     "@adonisjs/prettier-config": "^1.4.0",
     "@adonisjs/tsconfig": "^1.4.0",
@@ -87,7 +87,7 @@
   "peerDependencies": {
     "@adonisjs/application": "8.3.1",
     "@adonisjs/core": "^6.14.1",
-    "@adonisjs/inertia": "^1.2.2",
+    "@adonisjs/inertia": "^3.1.1",
     "@adonisjs/lucid": "^21.3.0",
     "@mantine/core": "^7.17.2",
     "@mantine/dates": "^7.17.2",
