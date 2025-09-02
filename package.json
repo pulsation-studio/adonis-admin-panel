@@ -3,7 +3,7 @@
   "description": "AdonisJS admin panel",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "engines": {
     "node": ">=20.6.0"
   },
