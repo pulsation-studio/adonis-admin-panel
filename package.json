@@ -66,7 +66,7 @@
     "@adonisjs/tsconfig": "^1.4.0",
     "@japa/assert": "^3.0.0",
     "@japa/runner": "^3.1.4",
-    "@mantine/core": "^7.17.2",
+    "@mantine/core": "^8.2.2",
     "@mantine/dates": "^7.17.2",
     "@mantine/form": "^7.17.2",
     "@swc/core": "^1.6.3",
@@ -89,7 +89,7 @@
     "@adonisjs/core": "^6.14.1",
     "@adonisjs/inertia": "^3.1.1",
     "@adonisjs/lucid": "^21.3.0",
-    "@mantine/core": "^7.17.2",
+    "@mantine/core": "^8.2.2",
     "@mantine/dates": "^7.17.2",
     "luxon": "^3.5.0"
   },
