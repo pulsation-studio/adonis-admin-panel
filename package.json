@@ -67,8 +67,8 @@
     "@japa/assert": "^3.0.0",
     "@japa/runner": "^3.1.4",
     "@mantine/core": "^8.2.2",
-    "@mantine/dates": "^7.17.2",
-    "@mantine/form": "^7.17.2",
+    "@mantine/dates": "^8.2.2",
+    "@mantine/form": "^8.2.2",
     "@swc/core": "^1.6.3",
     "@types/luxon": "^3.4.2",
     "@types/node": "^20.14.5",
@@ -90,7 +90,7 @@
     "@adonisjs/inertia": "^3.1.1",
     "@adonisjs/lucid": "^21.3.0",
     "@mantine/core": "^8.2.2",
-    "@mantine/dates": "^7.17.2",
+    "@mantine/dates": "^8.2.2",
     "luxon": "^3.5.0"
   },
   "publishConfig": {
