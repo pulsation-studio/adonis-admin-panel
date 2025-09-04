@@ -9,7 +9,9 @@
   },
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "LICENSE.md",
+    "README.md"
   ],
   "exports": {
     "./admin_config_provider": {
