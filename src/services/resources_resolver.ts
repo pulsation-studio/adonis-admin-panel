@@ -56,7 +56,7 @@ export class ResourcesResolver {
   resolveQueryParams(request: Request, routeType: RouteType): QueryParams {
     // Si Ressource, checker si extra filters et renvoyer des ResourceQueryParams (et ce que ça implique)
     // Sinon, checker les extra filter de l'action et renvoyer les Query_params adéquats
-    const rawQueryParams = request.qs()[this.adminCOnfig.query_params_key]
+    const rawQueryParams = request.qs()[this.adminCOnfig.queryParamsKey]
     if (rawQueryParams === undefined) {
       return {}
     }
