@@ -1,4 +1,4 @@
-import { Action, Resource, RouteType, BaseModel } from './index.js'
+import { Action, Resource, RouteType, BaseModel, QueryParams } from './index.js'
 
 export interface ResourceContext<Model extends BaseModel> {
   readonly instanceId?: string
@@ -7,4 +7,5 @@ export interface ResourceContext<Model extends BaseModel> {
   readonly redirectionUrl: string
   readonly resourcePath: string
   readonly action?: Action<Model>
+  readonly queryParams: QueryParams
 }

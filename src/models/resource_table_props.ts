@@ -1,9 +1,9 @@
 import { ModelObject } from '@adonisjs/lucid/types/model'
 import { ActionButton, BaseModel, ResourceField } from './index.js'
 
-interface TablePagination {
+export interface TablePagination {
   readonly itemsPerPage: number
-  readonly nbrPage: number
+  readonly nbPage: number
   readonly currentPage: number
   readonly totalItems: number
 }

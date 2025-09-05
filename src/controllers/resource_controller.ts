@@ -4,14 +4,13 @@ import { Action, HttpMethod, ResourceContext, ResourceProps } from '../models/in
 import { RegularActionProps } from '../models/regular_action_props.js'
 import { RouteType } from '../models/route_type.js'
 import ActionResolver from '../services/action_resolver.js'
-import { adminConfigService } from '../services/admin_config_service.js'
-import { ResourceRenderer, ResourcesResolver } from '../services/index.js'
+import { adminConfigService, ResourceRenderer, ResourcesResolver } from '../services/index.js'
 
 export default class ResourceController {
   public async index(ctx: HttpContext) {
     const adminConfig = await adminConfigService.getConfig()
     const resources = adminConfig.resources
-    const resourcesResolver = new ResourcesResolver(resources)
+    const resourcesResolver = new ResourcesResolver(resources, adminConfig)
     const resourceContext = resourcesResolver.resolve(ctx)
 
     switch (resourceContext.routeType) {

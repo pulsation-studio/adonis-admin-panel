@@ -1,4 +1,4 @@
-import { ModelObject } from '@adonisjs/lucid/types/model'
+import { ModelObject, ModelQueryBuilderContract } from '@adonisjs/lucid/types/model'
 import {
   Action,
   MultipleInstanceAction,
@@ -15,7 +15,7 @@ export class Resource<Model extends BaseModel> {
     readonly actions: Action<Model>[],
     readonly fields: ResourceField<Model>[],
     readonly meta: ResourceMeta,
-    private readonly _getQuerySet: () => Promise<InstanceType<Model>[]>,
+    private readonly _getQuerySet: () => ModelQueryBuilderContract<Model>,
     private readonly _instancesSerializer: (
       instances: InstanceType<Model>[]
     ) => Promise<ModelObject[]>
@@ -26,11 +26,11 @@ export class Resource<Model extends BaseModel> {
     return this.fields
   }
 
-  get serializedInstances(): Promise<ModelObject[]> {
-    return this.instances.then((instances) => this._instancesSerializer(instances))
+  public async serializeInstances(query: ModelQueryBuilderContract<Model>): Promise<ModelObject[]> {
+    return query.then((instances) => this._instancesSerializer(instances))
   }
 
-  get instances(): Promise<InstanceType<Model>[]> {
+  get instances(): ModelQueryBuilderContract<Model> {
     return this._getQuerySet()
   }
 
