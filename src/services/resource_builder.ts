@@ -1,6 +1,6 @@
 import { Exception } from '@adonisjs/core/exceptions'
 import { HttpContext } from '@adonisjs/core/http'
-import { ModelObject } from '@adonisjs/lucid/types/model'
+import { ModelObject, ModelQueryBuilderContract } from '@adonisjs/lucid/types/model'
 import { StrictValues } from '@adonisjs/lucid/types/querybuilder'
 import { computeFormInitialValues, resolveFormFieldFunction } from '../helpers/index.js'
 import { ConfirmationModal } from '../models/confirmation_modal_props.js'
@@ -8,6 +8,7 @@ import {
   Action,
   AdminFormProps,
   BaseModel,
+  ExtraResourceFilter,
   Form,
   HttpMethod,
   MultipleInstanceAction,
@@ -20,9 +21,10 @@ import {
 import { ActionBuilder } from './index.js'
 
 export class ResourceBuilder<Model extends BaseModel> {
+  private _extraFilters: ExtraResourceFilter<Model>[] = []
   private _actions: Action<Model>[] = []
   private _resourceFields: ResourceField<Model>[] = []
-  private _getQuerySet: () => Promise<InstanceType<Model>[]> = () => this._model.all()
+  private _getQuerySet: () => ModelQueryBuilderContract<Model> = () => this._model.query()
   private _instancesSerializer: (instances: InstanceType<Model>[]) => Promise<ModelObject[]> =
     async (instances) =>
       instances.map((i) => ({ primaryKeyValue: i.$primaryKeyValue, ...i.serialize() }))
@@ -31,6 +33,11 @@ export class ResourceBuilder<Model extends BaseModel> {
     private readonly _model: Model,
     private readonly _meta: ResourceMeta
   ) {}
+
+  addExtraFilter(extraFilter: ExtraResourceFilter<Model>) {
+    this._extraFilters.push(extraFilter)
+    return this
+  }
 
   addField(field: ResourceField<Model>) {
     this._resourceFields.push(field)
@@ -52,7 +59,7 @@ export class ResourceBuilder<Model extends BaseModel> {
     return this
   }
 
-  setQuerySetResolver(callback: () => Promise<InstanceType<Model>[]>) {
+  setQuerySetResolver(callback: () => ModelQueryBuilderContract<Model>) {
     this._getQuerySet = callback
     return this
   }

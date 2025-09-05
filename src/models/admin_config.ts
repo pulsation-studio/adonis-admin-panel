@@ -5,4 +5,5 @@ export interface AdminConfig {
   readonly resources: Resource<BaseModel>[]
   readonly logoutPath: string
   readonly defaultPath: string
+  readonly queryParamsKey: string
 }
