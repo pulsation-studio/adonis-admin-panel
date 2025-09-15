@@ -50,7 +50,6 @@ export class ResourceRenderer<Model extends LucidModel> {
     const query = this.context.resource.instances
     //Si il y a des query params, on apply le filtrage/sort/pagination avant de serializer
     const filteredQuery = this.applyTableQueryParams(query)
-
     const serializedInstances: ModelObject[] =
       await this.context.resource.serializeInstances(filteredQuery)
     const resourceTableProps: ResourceTableProps<Model> = {
@@ -65,12 +64,8 @@ export class ResourceRenderer<Model extends LucidModel> {
   applyTableQueryParams(
     query: ModelQueryBuilderContract<Model, InstanceType<Model>>
   ): ModelQueryBuilderContract<Model, InstanceType<Model>> {
-    //Vérifier qu'il y a des query params
     const queryParams = this.context.queryParams as ResourceQueryParams
     const sortedQuery = this.applyTableSortParams(query, queryParams)
-    //Vérifier qu'il sont corrects, ou gérer une possible erreur
-    //Appliquer les query params
-    //Renvoyer la query applied par les params
     return sortedQuery as ModelQueryBuilderContract<Model>
   }
 
@@ -86,11 +81,10 @@ export class ResourceRenderer<Model extends LucidModel> {
 
       matchingField.sortOption.value = fieldParam.sort
     }
-
-    const sortedQuery = query
+    let sortedQuery: ModelQueryBuilderContract<Model> = query
     resourceFields.map((resourceField) => {
       if (resourceField.sortOption && resourceField.sortOption.value !== SortingType.Null) {
-        sortedQuery.orderBy(resourceField.sortOption.querySort(), resourceField.sortOption.value)
+        sortedQuery = resourceField.sortOption.querySort(query, resourceField.sortOption.value)
       }
     })
 

@@ -54,21 +54,19 @@ export class ResourcesResolver {
   // Receive request.qs => Record<string,any>
   // https://docs.adonisjs.com/guides/basics/request#query-string-and-route-params
   resolveQueryParams(request: Request, routeType: RouteType): QueryParams {
-    // Si Ressource, checker si extra filters et renvoyer des ResourceQueryParams (et ce que ça implique)
-    // Sinon, checker les extra filter de l'action et renvoyer les Query_params adéquats
     const rawQueryParams = request.qs()[this.adminCOnfig.queryParamsKey]
     if (rawQueryParams === undefined) {
       return {}
     }
     const parsedQuery = this.parseQueryOrFail(rawQueryParams)
+
     if (routeType === RouteType.Resource) {
       return {
-        fieldQueryParams: parsedQuery.fieldsQueryParams,
+        fieldQueryParams: parsedQuery.fieldQueryParams,
         extraFilters: parsedQuery.extraFilters,
         // pagination: parsedQuery.pagination,
       } as ResourceQueryParams
     }
-
     return parsedQuery
   }
 
