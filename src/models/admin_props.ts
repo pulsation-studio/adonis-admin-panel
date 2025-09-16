@@ -5,4 +5,5 @@ export interface AdminProps {
   readonly adminTitle: string
   readonly layout: string
   readonly logoutPath: string
+  readonly queryParamsKey: string
 }

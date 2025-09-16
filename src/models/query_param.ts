@@ -4,6 +4,8 @@ export enum SortingType {
   Null = 'null',
 }
 
+export type QuerySortingType = Exclude<SortingType, SortingType.Null>
+
 export type QueryParams = Record<string, any>
 
 export interface ResourceFieldQueryParam {
