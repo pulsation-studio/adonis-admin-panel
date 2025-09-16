@@ -70,19 +70,20 @@ export class ResourceRenderer<Model extends LucidModel> {
   }
 
   applyTableSortParams(query: ModelQueryBuilderContract<Model>, queryParams: ResourceQueryParams) {
-    if (!queryParams.fieldQueryParams) return query
-
     const resourceFields = this.context.resource.fields
-    // applying new sort values
-    for (const fieldParam of queryParams.fieldQueryParams) {
-      const matchingField = resourceFields.find((f) => f.valueKey === fieldParam.fieldKey)
+    if (queryParams.fieldQueryParams) {
+      // applying new sort values
+      for (const fieldParam of queryParams.fieldQueryParams) {
+        const matchingField = resourceFields.find((f) => f.valueKey === fieldParam.fieldKey)
 
-      if (!matchingField || !matchingField.sortOption) continue
+        if (!matchingField || !matchingField.sortOption) continue
 
-      matchingField.sortOption.value = fieldParam.sort
+        matchingField.sortOption.value = fieldParam.sort
+      }
     }
     let sortedQuery: ModelQueryBuilderContract<Model> = query
     resourceFields.map((resourceField) => {
+      console.log(resourceField.sortOption)
       if (resourceField.sortOption && resourceField.sortOption.value !== SortingType.Null) {
         sortedQuery = resourceField.sortOption.querySort(query, resourceField.sortOption.value)
       }
