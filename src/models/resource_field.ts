@@ -17,12 +17,15 @@ export enum FilterType {
   Date = 'date',
 }
 
-// export interface FilterOption<Model extends LucidModel> {
-//   readonly query: (query: Promise<InstanceType<Model>[]>) => Promise<InstanceType<Model>[]>
-//   readonly type: FilterType
-//   readonly key: string
-//   readonly value: unknown
-// }
+export interface FilterOption<Model extends BaseModel> {
+  readonly queryFilter: (
+    query: ModelQueryBuilderContract<Model>,
+    filter: string
+  ) => ModelQueryBuilderContract<Model>
+  readonly type: FilterType
+  value?: string | null
+  options?: string[]
+}
 
 export interface SortOption<Model extends BaseModel> {
   readonly querySort: (
@@ -42,5 +45,5 @@ export interface ResourceField<Model extends BaseModel> {
   readonly truncate?: 'start' | 'end'
   readonly longField?: boolean
   readonly sortOption?: SortOption<Model>
-  // readonly filterOption?: FilterOption<Model>
+  readonly filterOption?: FilterOption<Model>
 }

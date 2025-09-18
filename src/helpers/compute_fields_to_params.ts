@@ -6,15 +6,14 @@ export function computeFieldsToParams<Model extends BaseModel>(
   resourceFields: ResourceField<Model>[],
   extraResourceFilters: QueryParams
 ): ResourceQueryParams {
-  const fieldQueryParams: ResourceFieldQueryParam[] = resourceFields
-    .filter((field) => field.sortOption !== undefined)
-    .map(
-      (field) =>
-        ({
-          fieldKey: field.valueKey,
-          sort: field.sortOption?.value,
-        }) as ResourceFieldQueryParam
-    )
+  const fieldQueryParams: ResourceFieldQueryParam[] = resourceFields.map(
+    (field) =>
+      ({
+        fieldKey: field.valueKey,
+        sortValue: field.sortOption?.value,
+        filterValue: field.filterOption?.value,
+      }) as ResourceFieldQueryParam
+  )
 
   const extraFilters: QueryParams = extraResourceFilters
   return {
