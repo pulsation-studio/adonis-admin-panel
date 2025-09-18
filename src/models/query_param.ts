@@ -10,8 +10,8 @@ export type QueryParams = Record<string, any>
 
 export interface ResourceFieldQueryParam {
   readonly fieldKey: string
-  readonly sort: SortingType
-  //   readonly filterQueryParams?: Record<string, any>
+  readonly sortValue?: SortingType
+  readonly filterValue?: string | null
 }
 
 // Affiner le typage
